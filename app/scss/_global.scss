@@ -1,0 +1,23 @@
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  color: $defaul;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1323px;
+}
+
+.text-animation:hover {
+  color: #63A60E;
+}
+
+.text-animation:focus {
+  color: #0ea65f;
+}
+
+.text-animation:active {
+  color: #345905;
+}

@@ -3,6 +3,64 @@
 @import 'reset';
 @import 'global';
 
+.aside {
+  background-color: $bg;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  @extend %lato-700;
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__list {
+      display: flex;
+      height: 50px;
+      align-items: center;
+    }
+
+    &__item + .aside__item{
+      padding-left: 24px;
+    }
+
+    &__left-item + .aside__left-item {
+      padding-left: 48px;
+    }
+
+    &__link {
+      outline: transparent;
+      transition: color 0.3s;
+    }
+
+    &__link--delivery-info {
+      padding-left: 44px;
+      position: relative;
+      &::before {
+        @extend %aside-icons;
+        width: 32px;
+        background-image: url('../images/icons/delivery-info.svg')
+      }
+    }
+
+    &__link--hotline {
+      padding-left: 34px;
+      position: relative;
+      &::before {
+        @extend %aside-icons;
+        width: 22px;
+        background-image: url("../images/icons/hotline.svg")
+      }
+    }
+
+}
+
+
+
+
+
 
 
 @import 'media';

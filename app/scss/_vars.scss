@@ -1,0 +1,30 @@
+$defaul: #121212;
+$bg: #31352B;
+
+%lato-700 {
+  font-family: 'Lato-Bold', sans-serif;
+  font-weight: 700;
+}
+
+%lato-400 {
+  font-family: 'Lato-Regular', sans-serif;
+  font-weight: 400;
+}
+
+%signika-600 {
+  font-family: 'Signika-SemiBold', sans-serif;
+  font-weight: 600;
+}
+
+%signika-700 {
+  font-family: 'Signika-Bold', sans-serif;
+  font-weight: 700;
+}
+
+%aside-icons {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 22px;
+}
