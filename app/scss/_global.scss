@@ -2,6 +2,7 @@ body {
   font-size: 14px;
   line-height: 1.4;
   color: $defaul;
+  @extend %lato-400;
 }
 
 .container {
@@ -11,7 +12,7 @@ body {
 }
 
 .text-animation:hover {
-  color: #63A60E;
+  color: $accent;
 }
 
 .text-animation:focus {
@@ -20,4 +21,28 @@ body {
 
 .text-animation:active {
   color: #345905;
+}
+
+@keyframes catalogue-aimation-open {
+  0% {
+    display: block;
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes catalogue-aimation-close {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
 }

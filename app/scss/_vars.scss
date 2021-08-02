@@ -1,9 +1,18 @@
 $defaul: #121212;
+$accent: #63A60E;
+$focus: #90ebc1;
+$active: #3a5418;
+
 $bg: #31352B;
 
 %lato-700 {
   font-family: 'Lato-Bold', sans-serif;
   font-weight: 700;
+}
+
+%lato-600 {
+  font-family: 'Lato-Semibold', sans-serif;
+  font-weight: 600;
 }
 
 %lato-400 {
@@ -27,4 +36,18 @@ $bg: #31352B;
   top: -6px;
   left: 0;
   height: 22px;
+}
+
+%button-effects {
+  &:hover {
+    background-color: #E0EDCF;
+  }
+
+  &:focus {
+    background-color: $focus;
+  }
+
+  &:active {
+    background-color: $active;
+  }
 }

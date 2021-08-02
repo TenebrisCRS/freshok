@@ -11,6 +11,7 @@
   line-height: 1.2;
   letter-spacing: 0.03em;
   @extend %lato-700;
+
     &__wrapper {
       display: flex;
       justify-content: space-between;
@@ -54,13 +55,260 @@
         background-image: url("../images/icons/hotline.svg")
       }
     }
-
 }
 
+.header {
+  background-color: $accent;
+  &__wrapper {
+      height: 110px;
+      display: flex;
+      align-items: center;
+  }
+
+  &__logo {
+    margin-right: 24px;
+  }
+}
+
+.logo {
+  border-radius: 6px;
+  transition: box-shadow 0.3s;
+  &:focus {
+    box-shadow: 0 0 10px $active;
+    outline: transparent;
+    // outline: 2px solid $focus;
+  }
+  // Хотел скруглить углы у outline и сделать так, как закомментированно, но такое свойство только у firefox есть (-moz-outline-radius), а бордер мне не нравится тем, что он как бы "толкает" все элементы рядом с логотипом
+}
+
+.catalogue {
+  margin-right: 30px;
+  position: relative;
+
+  &__button {
+    background-color: #fff;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    position: relative;
+    color: $accent;
+    padding: 15px 48px 15px 61px;
+    transition: background-color 0.3s;
+    outline: transparent;
+    @extend %lato-600; //<-- странная история с жирностью шрифта, по пиксельпёрфект видно, что 600 - это слишком жирный шрифт, но в макете указан 600
+    @extend %button-effects;  //<-- Не уверен, что это хорошая практика, но во время обучения для лучшего понимания scss, думаю, классно  
+
+    // &:hover {
+    //   background-color: #E0EDCF;
+    // }
+
+    // &:focus {
+    //   background-color: $focus;
+    // }
+
+    // &:active {
+    //   background-color: $active;
+    // }
 
 
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/icons/catalogue.svg');
+      background-repeat: no-repeat;
+      top: 16px;
+      left: 18px;
+      width: 25px;
+      height: 17px;
+    }
 
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url('../images/icons/arrow.svg');
+      background-repeat: no-repeat;
+      top: 23px;
+      right: 19px;
+      width: 7px;
+      height: 4px;
+      transition: transform 0.3s;
+    }
+  }
 
+  &__button--active {
+    background-color: #E0EDCF;
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+  position: absolute;
+  display: block;
+  top: 46px;
+  }
+
+  // Пиксельперфект слетел на 4px, потому что на макете кнопка увеличивается на 4px в высоту при её активации. Хз как это реализовать с такой анимацией как у меня.
+
+  &__item {
+    background-color: #ffffff;
+    width: 240px;
+    border-right: 1px solid #EDEDED;
+    border-bottom: 1px solid #EDEDED;
+    border-left: 1px solid #EDEDED;
+    opacity: 0;
+    visibility: hidden;
+    
+    &:focus {
+      background-color: #cadab5;
+    }
+  }
+
+  &__item:first-child {
+    border-top: 1px solid #EDEDED;
+  }
+  &__item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  &__item--active {
+    animation: catalogue-aimation-open 0.3s ease-in-out forwards;
+    visibility: visible;
+  }
+
+  &__item--deactive {
+    animation: catalogue-aimation-close 0.3s ease-in-out forwards;
+  }
+
+  //потратил пол дня, чуть не вышиб себе мозги, но реализовал анимацию через js, чтобы она не занимала 100+ строк кода в css. 
+  &__link {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #000000;
+    display: block;
+    @extend %lato-400;
+    padding: 15px 0 15px 24px;
+    outline: transparent;
+    transition: background-color 0.3;
+    &:hover {
+      border-left: 3px solid $accent;
+    }
+    &:focus {
+      background-color: $focus;
+      border-left: 3px solid $accent;
+    }
+    &:active {
+      background-color: $accent;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  position: relative;
+  margin-right: 33px;
+  &::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 16px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/icons/search.svg');
+    }
+
+  &__field {
+    width: 100vh;
+    max-width: 420px;
+    // Так я и не понял, почему без 100vh, max-width не работает, и почему это вообще vh, а не проценты
+    height: 50px;
+    padding-left: 51px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    border: none;
+    outline-color: $focus;
+    &::placeholder {
+      letter-spacing: 0.03em;
+      color: #31352B;
+    }
+  }
+
+  &__button {
+    width: 157px;
+    height: 50px;
+    background-color: $bg;
+    color: #ffffff;
+    @extend %lato-600;
+    text-transform: uppercase;
+    border: none;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    outline: transparent;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: #474b40;
+    }
+    &:focus {
+      background-color: #000000;
+    }
+    &:active {
+      background-color: #1c1d1a;
+    }
+  }
+}
+
+.user-nav {
+  display: flex;
+  width: 174px;
+  &__item {
+    position: relative;
+    border-radius: 3px;
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+
+  &__item:last-child {
+    margin-right: 0;
+  }
+
+  &__link { 
+    display: block;
+    border-radius: 3px;
+      transition: box-shadow 0.3s, background-color 0.3s;
+    padding: 1px 0; //странная ситуация с этим линком: я его никак не мог центрировать по веритикали,пока просто не добавил padding. Я не понимаю почему это так работает и как я должен был сделать это правильно? 
+    &:active {
+      background-color: $active;
+    }
+    &:hover {
+      background-color: #72AF26;
+  }
+    &:focus{
+      box-shadow: 0 0 10px $active;
+      outline: transparent;
+    }
+  }
+
+  &__img {
+    margin: 9px auto;
+  }
+
+  &__num {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    top: 2px;
+    left: 3px;
+    font-size: 10px;
+    color: #CF3E3B;
+    @extend %lato-600;
+    letter-spacing: 0.03em;
+    line-height: 18px;
+    text-align: center;
+  }
+}
 
 
 @import 'media';
