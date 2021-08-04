@@ -10,27 +10,41 @@ $(function () {
         clearInterval(classTimer);
         i = 11;
         lock = false;
-        $(this).attr('disabled', false);
       }, 601);
+      setTimeout(() => {
+        $(this).attr('disabled', false);
+      }, 901);
     } else{
       var classTimer = setInterval(deactiveClass, 50);
       setTimeout(() => { 
         clearInterval(classTimer);
         i = 0; lock = true;
-        $(this).attr('disabled', false);
       }, 601);
+      setTimeout(() => {
+        $(this).attr('disabled', false);
+      }, 901);
     }
   })
 
   function activeClass() {
-    $('.catalogue__item').eq(i).removeClass('catalogue__item--deactive');
-    $('.catalogue__item').eq(i).addClass('catalogue__item--active');
+    var item = $('.catalogue__item').eq(i);
+    item.removeClass('catalogue__item--deactive');
+    item.addClass('catalogue__item--active');
+    item.css('display', 'block');
     i++;
   }
 
   function deactiveClass() {
-    $('.catalogue__item').eq(i).removeClass('catalogue__item--active');
-    $('.catalogue__item').eq(i).addClass('catalogue__item--deactive');
+    var item = $('.catalogue__item').eq(i);
+    item.removeClass('catalogue__item--active');
+    item.addClass('catalogue__item--deactive');
+    setTimeout(() => {
+      item.css('display', 'none');
+    }, 301);
     i--;
   }
+
+  $('.slider').slick({
+    
+  });
 });

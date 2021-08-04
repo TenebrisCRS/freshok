@@ -2,6 +2,7 @@ $defaul: #121212;
 $accent: #63A60E;
 $focus: #90ebc1;
 $active: #3a5418;
+$red: #CF3E3B;
 
 $bg: #31352B;
 
@@ -21,12 +22,12 @@ $bg: #31352B;
 }
 
 %signika-600 {
-  font-family: 'Signika-SemiBold', sans-serif;
+  font-family: 'OpenSans-SemiBold', sans-serif;
   font-weight: 600;
 }
 
 %signika-700 {
-  font-family: 'Signika-Bold', sans-serif;
+  font-family: 'OpenSans-Bold', sans-serif;
   font-weight: 700;
 }
 
@@ -50,4 +51,10 @@ $bg: #31352B;
   &:active {
     background-color: $active;
   }
+}
+
+%background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

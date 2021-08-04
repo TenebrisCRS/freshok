@@ -92,7 +92,7 @@
     border-radius: 6px;
     position: relative;
     color: $accent;
-    padding: 15px 48px 15px 61px;
+    padding: 15px 54px 15px 61px;
     transition: background-color 0.3s;
     outline: transparent;
     @extend %lato-600; //<-- странная история с жирностью шрифта, по пиксельпёрфект видно, что 600 - это слишком жирный шрифт, но в макете указан 600
@@ -146,6 +146,7 @@
   position: absolute;
   display: block;
   top: 46px;
+  z-index: 3;
   }
 
   // Пиксельперфект слетел на 4px, потому что на макете кнопка увеличивается на 4px в высоту при её активации. Хз как это реализовать с такой анимацией как у меня.
@@ -157,7 +158,7 @@
     border-bottom: 1px solid #EDEDED;
     border-left: 1px solid #EDEDED;
     opacity: 0;
-    visibility: hidden;
+    display: none;
     
     &:focus {
       background-color: #cadab5;
@@ -173,7 +174,6 @@
   }
   &__item--active {
     animation: catalogue-aimation-open 0.3s ease-in-out forwards;
-    visibility: visible;
   }
 
   &__item--deactive {
@@ -186,7 +186,6 @@
     line-height: 1.2;
     color: #000000;
     display: block;
-    @extend %lato-400;
     padding: 15px 0 15px 24px;
     outline: transparent;
     transition: background-color 0.3;
@@ -261,6 +260,7 @@
   display: flex;
   width: 174px;
   &__item {
+    display: block;
     position: relative;
     border-radius: 3px;
     width: 50px;
@@ -302,12 +302,115 @@
     top: 2px;
     left: 3px;
     font-size: 10px;
-    color: #CF3E3B;
+    color: $red;
     @extend %lato-600;
     letter-spacing: 0.03em;
     line-height: 18px;
     text-align: center;
   }
+}
+
+.slider{
+  margin-left: -9px; //Не понял откуда это взялось
+  &__wrapper {
+  height: calc(100vh - 160px);
+  @extend %background;
+}
+
+&__inner {
+  margin-top: 143px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 23px;
+  display: inline-block;
+  border-radius: 6px;
+  color: #505050;
+  max-width: 870px;
+  margin-bottom: 30px;
+}
+
+&__title {
+  @extend %signika-700; 
+  font-size: 60px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  word-spacing: -4px;
+  &--red {
+    word-spacing: 0;
+    color: $red;
+    margin-bottom: 8px;
+  }
+}
+
+&__text {
+  font-size: 16px;
+  line-height: 1.4;
+  word-spacing: 1px;
+  padding-bottom: 3px;
+}
+
+.slider &__button {
+  width: 173px; 
+}
+
+.slick-arrow {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 35%;
+    transform: translateY(-3px);
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    font-size: 0;
+    border: none;
+}
+
+.slick-next {
+    right: 53px;
+    z-index: 1;
+    &::before {
+    content: "";
+    top: 50%;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-top: 3px solid #505050;
+    border-right: 3px solid #505050;
+    transform: rotate(46deg) translate(-90%, 24%);
+    border-radius: 3px;
+    }
+}
+
+.slick-prev {
+    left: 58px;
+    z-index: 1;
+    &::before {
+    content: "";
+    top: 50%;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-top: 3px solid #505050;
+    border-right: 3px solid #505050;
+    transform: rotate(223deg) translate(45%, 21%);
+    border-radius: 3px;
+    }
+}
+}
+
+.btn {
+  background-color: $accent;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.3;
+  width: 169px;
+  height: 47px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer
 }
 
 
