@@ -43,8 +43,6 @@ $(function () {
     }, 301);
     i--;
   }
-
-  $('.slider').slick({
-    
-  });
+  var mixer = mixitup('.products__list')
+  $('.slider').slick();
 });

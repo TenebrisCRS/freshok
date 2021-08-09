@@ -1,7 +1,7 @@
 body {
   font-size: 14px;
   line-height: 1.4;
-  color: $defaul;
+  color: #121212;
   @extend %lato-400;
 }
 
@@ -21,6 +21,14 @@ body {
 
 .text-animation:active {
   color: #345905;
+}
+
+.title {
+  @extend %opensans-600;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
 }
 
 @keyframes catalogue-aimation-open {
@@ -43,5 +51,14 @@ body {
   100% {
     opacity: 0;
     transform: translateX(20px);
+  }
+}
+
+@keyframes fave-heart {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2800px 0;
   }
 }
